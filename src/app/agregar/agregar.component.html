@@ -1,3 +1,8 @@
+<div class="container text-center mt-3 mb-3">
+  <h1>Registro</h1>
+</div>
+
+
 <div class="container">
   <form [formGroup]="formularioCreado" >
     <div class="form-group">
@@ -47,20 +52,55 @@
       </div>
 
     </div>
-    <button *ngIf="esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-primary" (click)="agregar()"> Agregar </button>
-    <button *ngIf="!esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-warning" (click)="editar()"> Editar </button>
+    <button *ngIf="esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-primary btn-block" (click)="agregar()"> Agregar </button>
+    <button *ngIf="!esNuevo" [disabled]="!formularioCreado.valid" class="btn btn-warning btn-block" (click)="editar()"> Editar </button>
 
 
   </form>
 </div>
 
+<!--
 
-<div *ngFor="let usuario of usuarios; let posicion = index">
-  <h4>{{usuario.nombre}} tiene la posicion {{posicion}}</h4>
-  <p>{{usuario.correo}}</p>
-  <p>{{usuario.password}}</p>
-  <button (click)="editarUsuario(posicion)">EditarUsuario</button>
+  <div *ngFor="let usuario of usuarios; let posicion = index">
+    <h4>{{usuario.nombre}} tiene la posicion {{posicion}}</h4>
+    <p>{{usuario.correo}}</p>
+    <p>{{usuario.password}}</p>
+    <button (click)="editarUsuario(posicion)">EditarUsuario</button>
+    <button (click)="eliminarrUsuario(posicion)">Eliminar usuario</button>
+    
+  </div>  
+-->
 
-</div>  
 
+<div class="container mt-5">
 
+  <table class="table" >
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th  scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">Botones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let usuario of usuarios; let posicion = index" >
+        <th class="text-center align-middle" scope="row">{{posicion + 1  }}</th>
+        <td class="align-middle">{{usuario.nombre}}</td>
+        <td class="align-middle">{{usuario.correo}}</td>
+        <td class="align-middle">{{usuario.password}}</td>
+        <td class="text-center">
+          <div class="container">
+            <button (click)="editarUsuario(posicion)" class="btn btn-warning pd-2 m-2 btn-block" >EditarUsuario</button>
+          </div>
+          <div class="container">
+            <button (click)="eliminarrUsuario(posicion)" class="btn btn-danger pd-2 m-2 btn-block">Eliminar usuario</button>
+          </div>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>

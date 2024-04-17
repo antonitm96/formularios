@@ -22,12 +22,30 @@ export class AgregarComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.usuarios.push({
+      nombre: 'Antoni',
+      correo: 'Anto@gmail.com',
+      password: 'ecuiposoni123'
+
+    },
+    {
+      nombre: 'Sofia',
+      correo: 'Sofia@gmail.com',
+      password: 'ecuiposoni1234'
+    },
+    {
+      nombre: 'Soni',
+      correo: 'Soni@gmail.com',
+      password: 'familia12345'
+    }
+  );
     this.crearFormulario();
+
   }
 
   crearFormulario(){
     this.formularioCreado = this.formBuilder.group({
-      nombre: ['Carmen', Validators.required],
+      nombre: ['', Validators.required],
       correo: ['',Validators.compose([
         Validators.required, Validators.email
       ])],
@@ -78,6 +96,10 @@ export class AgregarComponent implements OnInit {
   }
 
 
-
+  eliminarrUsuario(posicion: number){
+      this.usuarios.splice(posicion,1)
+      this.formularioCreado.reset();
+      this.esNuevo = true;
+  }
 
 }
