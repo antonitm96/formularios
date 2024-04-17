@@ -25,18 +25,18 @@ export class AgregarComponent implements OnInit {
     this.usuarios.push({
       nombre: 'Antoni',
       correo: 'Anto@gmail.com',
-      password: 'ecuiposoni123'
+      password: '12345678'
 
     },
     {
       nombre: 'Sofia',
       correo: 'Sofia@gmail.com',
-      password: 'ecuiposoni1234'
+      password: '12345678'
     },
     {
       nombre: 'Soni',
       correo: 'Soni@gmail.com',
-      password: 'familia12345'
+      password: '12345678'
     }
   );
     this.crearFormulario();
